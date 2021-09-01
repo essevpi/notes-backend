@@ -3,8 +3,9 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "An api call tested with REST VSCode Plugin + MongoDB",
-    "important": true
+    "content": "A note by John Doe",
+    "important": true,
+    "userId": "612f6b38b04c9907e0fb3041"
 }
 
 ###
