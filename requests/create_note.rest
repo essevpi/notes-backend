@@ -1,9 +1,22 @@
 #Create a note
 POST http://localhost:3001/api/notes
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG5fRCIsImlkIjoiNjEyZjZiMzhiMDRjOTkwN2UwZmIzMDQxIiwiaWF0IjoxNjMwNTEyMjQxfQ.7SNgb6dc6rwpRC8jUL-jqWhXn4XJ0mTt9i0Epf7RlTk
 
 {
-    "content": "A note by John Doe",
+    "content": "A token-authenticated note by John Doe",
+    "important": true,
+    "userId": "612f6b38b04c9907e0fb3041"
+}
+
+###
+#Create a note with wrong auth token
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1
+
+{
+    "content": "A token-authenticated note by John Doe",
     "important": true,
     "userId": "612f6b38b04c9907e0fb3041"
 }

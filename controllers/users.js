@@ -13,8 +13,8 @@ usersRouter.get('/', async (req, res, next) => {
     }
 });
 
-usersRouter.post('/', async (request, response, next) => {
-    const body = request.body;
+usersRouter.post('/', async (req, res, next) => {
+    const body = req.body;
 
     const saltRounds = 10;
     const passwordHash = await bcrypt.hash(body.password, saltRounds);
@@ -27,7 +27,7 @@ usersRouter.post('/', async (request, response, next) => {
 
     try {
         const savedUser = await user.save();
-        response.json(savedUser);
+        res.json(savedUser);
     } catch (exception) {
         next(exception);
     }
